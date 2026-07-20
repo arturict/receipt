@@ -55,7 +55,7 @@ The server sends the accepted baseline and incoming request to the configured Az
 
 Whitespace and case are normalized for matching, but the cited words must otherwise exist in the submitted sources. Invalid output or an unavailable Azure call becomes an explicit manual-review draft.
 
-During build validation on 20 July 2026, the grounded sample was exercised through the function analysis path. `gpt-5.4-nano` did not meet that path's latency and structured-output reliability needs. `gpt-5.4-mini` completed the sample in 2.36 seconds, and its Azure response reported 314 prompt tokens and 315 completion tokens, so mini is the production route. This is one workload-specific routing result, not a general benchmark; retain the matching function log and AI receipt as evidence.
+The configured production route is `gpt-5.4-mini`. Receipt records available latency and token metadata in owner-only AI receipts for operational review, but the public product claims only the deterministic bounds and verified behavior above.
 
 ## Data model
 

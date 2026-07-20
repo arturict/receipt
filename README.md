@@ -37,15 +37,15 @@ If Azure is unavailable or returns invalid evidence, Receipt keeps the request u
 
 The checked-in Appwrite configuration targets the FRA endpoint and project `receipt-buildweek`. See [Architecture](docs/ARCHITECTURE.md) for the request and data flows, and [Security](docs/SECURITY.md) before using real client material.
 
-### Measured model route
+### Bounded model route
 
-On 20 July 2026, Receipt evaluated the grounded sample through the function analysis path. `gpt-5.4-nano` did not meet that path's latency and structured-output reliability needs. The selected `gpt-5.4-mini` route completed the sample in **2.36 seconds**, and the Azure response reported **314 prompt tokens and 315 completion tokens**. The production request caps completion at 2,000 tokens to reduce truncation risk within the 24-item bound; invalid or truncated output falls back to complete manual segmentation. This is one workload-specific routing result, not a general model benchmark; retain the matching function log and AI receipt with the submission evidence.
+The runtime route uses `gpt-5.4-mini` for one grounded comparison. Production requests cap completion at 2,000 tokens and the server accepts at most 24 evidence items. Invalid, ungrounded, or truncated output falls back to complete manual segmentation instead of becoming a proposal.
 
 ## How Codex contributed
 
 Codex with GPT-5.6 was used as a build-time engineering partner—not as the runtime model. It helped turn the product constraints into concrete React and Appwrite changes, inspect the full data path, challenge authorization and failure cases, and run the repository verification. The most consequential decisions from that loop are visible in code: server-checked citations, a required human-review timestamp, locked analysis after publication, atomic state/audit/AI-receipt writes, hash-only capability tokens, and all-or-nothing AI budget reservations.
 
-The author remained responsible for the product premise, constraints, model-routing decision, and final review. Receipt's runtime comparison uses the measured Azure `gpt-5.4-mini` route above.
+The author remained responsible for the product premise, constraints, model-routing decision, and final review. Receipt's runtime comparison uses the bounded Azure `gpt-5.4-mini` route above.
 
 ## Run the sample
 

@@ -1,82 +1,90 @@
-# Demo script — 2:55 target
+# Demo script — verified 2:08 cut
 
-The Build Week demo must be under three minutes and include audible narration. This script budgets 2:55, leaving five seconds for recorder variance. The final upload must be a public YouTube video.
+The recorded Build Week demo is 2:07.84, includes audible narration, and uses only the fictional Northstar workspace. The final upload must be a public YouTube video.
 
-## Before recording
+## Recording safety
 
-- Use a disposable anonymous session and only the fictional Northstar sample.
-- Confirm the live Appwrite Site, Function, TablesDB, Realtime, and Azure path work.
-- Create the Northstar room, select **Compare again**, and confirm the **Azure AI draft** badge. Leave that draft unsaved so the on-camera review step remains real.
-- Pick a future delivery date and disposable proposal terms.
-- Close notifications and hide bookmarks, credentials, logs, and unrelated tabs.
-- Use only original or properly licensed visuals, music, and other material; remove unauthorized third-party marks.
-- Set browser zoom so citations and controls are legible at video resolution.
-- Test the microphone, capture a ten-second clip, and listen to it.
-- Confirm the creator statement about Codex and GPT-5.6 is accurate; edit it if needed.
+- Use a disposable anonymous session and only fictional data.
+- Keep credentials, logs, notifications, and the raw capability URL out of frame.
+- Expire the disposable capability immediately after recording.
+- Show the live Appwrite flow, not a mocked product animation.
+- Keep runtime Azure `gpt-5.4-mini` distinct from build-time Codex and GPT-5.6.
 
-Do not show a real client document, Azure key, Appwrite key, or reusable proposal link.
+## 0:00–0:08 — Premise
 
-## 0:00–0:18 — The problem
+**Show:** Receipt title card and the Build Week track.
 
-**Show:** Receipt title, then the accepted baseline and incoming request side by side.
+**Narration:**
 
-**Say:**
+“Scope creep rarely arrives as a formal change order. It arrives as one small request before Friday, while the accepted promise lives somewhere else.”
 
-“A client asks for one small change, but the accepted scope is somewhere else and the commercial decision gets made from memory. Receipt puts the promise beside the ask, so every change gets a clear answer and a receipt.”
+## 0:08–0:31 — The two sources
 
-## 0:18–0:55 — Grounded comparison
+**Show:** Create the fictional Northstar room, then place the accepted baseline beside the exact incoming request.
 
-**Show:** Scroll across the included, additional, and unclear columns. Pause on the booking and revision cards so both exact excerpts are readable. Show the **Azure AI draft** badge.
+**Narration:**
 
-**Say:**
+“Receipt puts those two sources in one decision room. This fictional Northstar example records the accepted baseline beside the client's exact request. The server time-stamps both in Appwrite and creates an audit trail.”
 
-“This comparison was drafted by Azure GPT-5.4-mini. It calls booking additional because the baseline explicitly excludes booking, and it cites the exact words on both sides. The server checks every citation against the submitted documents. If a quote is invented—or Azure is unavailable—the workflow falls back to explicit manual review.”
+## 0:31–0:52 — Grounded draft
 
-## 0:55–1:20 — Human decision
+**Show:** Included and additional work, exact citations, rationale, confidence, and the manual fallback warning.
 
-**Show:** Correct one exact excerpt or add an evidence item, then select **Save human review**.
+**Narration:**
 
-**Say:**
+“A grounded comparison groups each exact request excerpt as included, additional, or unclear. Every citation is checked against the submitted source text on the server. If the model times out or invents evidence, Receipt keeps the complete request and switches to an explicit manual-review draft.”
 
-“AI compares; the operator decides. I can correct exact evidence, add or remove an item, and change its category or reasoning. The server validates the citations again, requires this saved review before publishing, then locks the analysis once a proposal exists. The model never gets price or delivery fields.”
+## 0:52–1:10 — Human review and terms
 
-## 1:20–1:48 — Human proposal
+**Show:** Save the human review, then enter the fee, delivery date, note, and link lifetime.
 
-**Show:** Enter the prepared fee and future delivery date, select a three-day lifetime, add a short note, and publish. Do not linger on the raw link.
+**Narration:**
 
-**Say:**
+“The operator stays accountable. They can correct every classification, rationale, excerpt, and question. A proposal is impossible until that human review is saved. Only a person can set the fee, currency, delivery date, note, and link lifetime.”
 
-“Now I set the fee, date, note, and expiry myself. Receipt generates a 256-bit capability token, stores only its hash, and puts the token in the URL fragment. Anyone with the live link can respond, so the UI says that plainly.”
+## 1:10–1:36 — Capability decision
 
-## 1:48–2:18 — Capability-holder decision and Realtime receipt
+**Show:** Redact the disposable URL, open the proposal as its holder, inspect the evidence, and accept once.
 
-**Show:** Open the disposable link in a second browser context, inspect the cited proposal, select **Accept proposal**, then **Record final decision**. Return to the operator tab and show the accepted state and timeline update.
+**Narration:**
 
-**Say:**
+“The resulting capability link is random, hash-only at rest, expiring, and rotatable. The holder sees only the reviewed proposal projection and can make one final choice. Here it is accepted, then returned to the operator through Appwrite Realtime with capability-based attribution instead of a fake identity claim.”
 
-“The client sees the evidence and terms without a sign-up or named account; Receipt creates an anonymous Appwrite session behind the scenes. The client records one final decision, Appwrite writes it with the audit event transactionally, and Realtime brings the result back to the operator workspace.”
+## 1:36–1:53 — Architecture
 
-## 2:18–2:35 — Appwrite architecture
+**Show:** The accepted operator state and audit trail, followed by the architecture card.
 
-**Show:** Briefly switch to the architecture diagram or repository tree.
+**Narration:**
 
-**Say:**
+“Appwrite provides anonymous demo sessions, Functions, row-secured TablesDB, transactions, Realtime, and the deployed Site. Azure GPT-5.4-mini performs the narrow runtime comparison. It does not price work or make the final decision.”
 
-“Appwrite is the backbone: anonymous sessions, a Node 22 Function, six row-secured TablesDB tables, transactions, Realtime, and Sites. Mini completed our sample in 2.36 seconds after nano missed the function's needs. User, project, and global AI budgets commit together.”
+## 1:53–2:04 — Codex contribution
 
-## 2:35–2:55 — Codex contribution and close
+**Show:** The Codex and GPT-5.6 build card with the verified test, tenant-isolation, and production-smoke facts.
 
-**Show:** Return to the final Receipt screen.
+**Narration:**
 
-**Say:**
+“Codex with GPT-5.6 was the build-time engineering partner. It helped turn the premise into the React and Appwrite implementation, challenge authorization and concurrency paths, repair atomic AI budgets, and verify the production flow. I made the product, model-routing, and release decisions.”
 
-“I used Codex with GPT-5.6 at build time to implement and review the React/Appwrite path, especially citation checks, human-review guards, and atomic budgets. I owned the product constraints and measured switch to mini. Receipt: every small change gets a clear answer and a receipt.”
+## 2:04–2:08 — Close
 
-## Final video check
+**Show:** Receipt closing card.
 
-- Runtime is `2:59` or less.
-- Narration is audible on phone and laptop speakers.
-- The video explicitly names Appwrite, Azure `gpt-5.4-mini`, Codex, and GPT-5.6.
-- No secret, personal data, or reusable capability URL is readable.
-- No unlicensed copyrighted material or unauthorized third-party mark appears or plays.
-- The YouTube visibility is **Public**, not Private or Unlisted, and it plays from a signed-out browser without requesting access.
+**Narration:**
+
+“Every small change gets a clear answer and a receipt.”
+
+## Verified local artifact
+
+- H.264/AAC MP4, 1440×900 at 25 fps
+- Runtime: 2:07.84
+- Size: 6,908,209 bytes
+- SHA-256: `0755F8DC4E8C0915EE0A273AE1301C9C1AC3C8E1F96CE6B9CFEBEE2AA9747E67`
+- Full video and audio decode passed; the only silence longer than two seconds is the 4.79-second closing hold.
+- Multiple frames were inspected across the product flow and all three closing cards.
+
+## Before publishing
+
+- Listen once on phone or laptop speakers.
+- Confirm YouTube visibility is **Public** and playback works while signed out.
+- Use the copy in `docs/YOUTUBE.md` and add the resulting URL to the Devpost entry.

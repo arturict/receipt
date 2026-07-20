@@ -13,7 +13,7 @@ This separates repository evidence from actions that require GitHub, Appwrite, a
 - [x] Create the public repository and verify it from the signed-out GitHub surface.
 - [x] Public repository URL: https://github.com/arturict/receipt
 - [x] Confirm GitHub Actions discovers `.github/workflows/ci.yml` and the Node 22.13.0 job passes: run `29752762291`.
-- [ ] Pin or protect the submission revision as appropriate.
+- [x] Protect `main` with the strict `Node 22 verification` check, linear history, conversation resolution, and force-push/deletion protection.
 
 ## Local verification
 
@@ -41,7 +41,7 @@ The checked tests are a dated local snapshot. They do not cover live permissions
 - [x] Confirm anonymous auth, function execute access, row scopes, and table permissions match the manifests.
 - [x] Set `AZURE_AI_ENDPOINT` and `AZURE_AI_API_KEY` only as server-side function variables.
 - [x] Confirm the deployment is `gpt-5.4-mini`, the completion cap is 2,000, the evidence bound is 24 items, and API version is `2024-10-21`.
-- [ ] Preserve the 20 July 2026 function log and AI receipt for the measured sample: 2.36 seconds, 314 prompt tokens, and 315 completion tokens; label it as a sample result rather than a general benchmark.
+- [x] Remove the unpreserved latency and token benchmark from the public submission copy rather than presenting it as evidence.
 - [x] Confirm the live defaults are user/hour 3, project/month 20, and global/month 100.
 - [ ] Exercise a limit/conflict path and confirm the three-counter transaction does not leave a partial quota reservation.
 - [ ] Add an independent Azure quota or cost alert.
@@ -50,21 +50,21 @@ The checked tests are a dated local snapshot. They do not cover live permissions
 - [ ] Force or simulate Azure failure and confirm the manual-review fallback.
 - [ ] Leave or simulate a request in `analyzing`, confirm recovery is blocked before 45 seconds, then confirm manual recovery preserves the complete request after the lease.
 - [x] Verify a fresh proposal link, a rotated old link, an expired disposable link, an idempotent repeated decision, and a conflicting opposite decision.
-- [ ] Confirm the client-facing projection contains no owner ID, token hash, AI budgets, or unrelated project data.
+- [x] Confirm the live client-facing projection contains no owner ID, token hash, AI budgets, or unrelated project data.
 - [ ] Review Appwrite/Azure logging, retention, deletion, and data-processing settings.
 - [x] Verify HTTPS, HSTS, `X-Content-Type-Options`, restrictive CSP meta policy, no-referrer policy, and the application frame guard. Response-header CSP remains required before real client data.
 - [x] Live app URL: https://6a5e2a17001ae35f5c10.appwrite.network/
 
 ## Demo video — external gate
 
-- [ ] Follow `docs/DEMO_SCRIPT.md` with fictional data and a disposable link.
-- [ ] Keep the final cut under three minutes.
-- [ ] Include audible narration that explains both Codex and GPT-5.6's contribution.
-- [ ] Explicitly distinguish runtime Azure `gpt-5.4-mini` from build-time Codex/GPT-5.6 assistance.
-- [ ] Show Appwrite in the product flow, not only on a slide.
+- [x] Follow `docs/DEMO_SCRIPT.md` with fictional data and a disposable link.
+- [x] Keep the final cut under three minutes: verified H.264/AAC artifact is 2:07.84.
+- [x] Include audible narration that explains both Codex and GPT-5.6's contribution.
+- [x] Explicitly distinguish runtime Azure `gpt-5.4-mini` from build-time Codex/GPT-5.6 assistance.
+- [x] Show Appwrite in the product flow, not only on a slide.
 - [ ] Check text legibility and audio on a second device.
-- [ ] Confirm no credentials, personal data, notifications, or reusable capability URL are visible.
-- [ ] Confirm all video visuals, music, and other material are original or properly licensed, with no unauthorized third-party marks.
+- [x] Confirm no credentials, personal data, notifications, or reusable capability URL are visible; every recording capability was expired after its run.
+- [x] Confirm the video uses the original Receipt UI, original text cards, no music, and no third-party footage.
 - [ ] Upload to YouTube with visibility set to **Public**, then verify playback while signed out.
 - [ ] Demo video URL: **TODO**
 

@@ -59,9 +59,7 @@ Proposal links use 32 random bytes in a URL fragment. Only a SHA-256 hash is sto
 
 Azure `gpt-5.4-mini` handles one narrow runtime job: draft a grounded comparison between accepted scope and incoming request. Deterministic server validation and enforced human review surround that call.
 
-**Creator check:** keep the following paragraph only if it matches the actual build history.
-
-Codex with GPT-5.6 was my build-time engineering partner. I supplied the product premise and constraints; Codex helped implement and review the React/Appwrite path, including citation validation, server-enforced human review, transactional proposal and decision guards, all-or-nothing AI budgets, and repository verification. I made the product and routing decisions and reviewed the result. GPT-5.6 is not the runtime model—the product analysis path uses the measured Azure `gpt-5.4-mini` route described above.
+Codex with GPT-5.6 was my build-time engineering partner. I supplied the product premise and constraints; Codex helped implement and review the React/Appwrite path, including citation validation, server-enforced human review, transactional proposal and decision guards, all-or-nothing AI budgets, and repository verification. I made the product and routing decisions and reviewed the result. GPT-5.6 is not the runtime model—the product analysis path uses Azure `gpt-5.4-mini`.
 
 ## Challenges
 
@@ -69,9 +67,9 @@ Codex with GPT-5.6 was my build-time engineering partner. I supplied the product
 
 Prompting for citations was not enough. Receipt validates exact normalized excerpts after the model responds and rejects the entire analysis if evidence cannot be traced to the submitted text.
 
-### Choosing the route from evidence
+### Bounding the runtime path
 
-During build validation on 20 July 2026, `gpt-5.4-nano` did not meet the Appwrite Function path's latency and structured-output reliability needs for our grounded sample. `gpt-5.4-mini` completed that sample in 2.36 seconds; its Azure response reported 314 prompt tokens and 315 completion tokens. We selected mini and capped completion at 2,000 tokens to reduce truncation risk within the 24-item bound; invalid or truncated output falls back to complete manual segmentation. That is one measured decision for this workflow, not a claim about every workload; the matching function log and AI receipt must stay with the submission evidence.
+The Azure route is deliberately narrow. `gpt-5.4-mini` receives only the accepted baseline and incoming request, the response is capped at 2,000 completion tokens, and the server accepts at most 24 evidence items. Invalid, ungrounded, or truncated output falls back to complete manual segmentation instead of becoming a proposal.
 
 ### Sharing without publishing a secret
 
