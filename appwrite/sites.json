@@ -1,0 +1,20 @@
+[
+  {
+    "$id": "receipt-web",
+    "name": "Receipt Web",
+    "logging": true,
+    "framework": "react",
+    "timeout": 30,
+    "installCommand": "npm ci",
+    "buildCommand": "npm run build",
+    "outputDirectory": "./dist",
+    "buildSpecification": "s-2vcpu-2gb",
+    "runtimeSpecification": "s-1vcpu-512mb",
+    "buildRuntime": "node-22",
+    "adapter": "static",
+    "fallbackFile": "index.html",
+    "startCommand": "",
+    "deploymentRetention": 10,
+    "path": "../apps/web"
+  }
+]

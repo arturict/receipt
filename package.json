@@ -1,0 +1,13 @@
+{
+  "name": "receipt-build-week",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=22.13.0 <23"
+  },
+  "scripts": {
+    "install:all": "npm ci --prefix apps/web && npm ci --prefix functions/scope-api",
+    "verify": "npm run verify --prefix apps/web && npm run verify --prefix functions/scope-api",
+    "build": "npm run build --prefix apps/web && npm run build --prefix functions/scope-api"
+  }
+}

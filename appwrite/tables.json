@@ -1,0 +1,134 @@
+[
+  {
+    "$id": "projects",
+    "$permissions": [],
+    "databaseId": "receipt",
+    "name": "Projects",
+    "enabled": true,
+    "rowSecurity": true,
+    "columns": [
+      { "key": "ownerUserId", "type": "varchar", "size": 36, "required": true, "array": false, "encrypt": false },
+      { "key": "name", "type": "varchar", "size": 120, "required": true, "array": false, "encrypt": false },
+      { "key": "clientName", "type": "varchar", "size": 120, "required": true, "array": false, "encrypt": false },
+      { "key": "status", "type": "string", "format": "enum", "elements": ["active", "archived"], "required": true, "array": false }
+    ],
+    "indexes": [
+      { "key": "project_owner_created", "type": "key", "attributes": ["ownerUserId", "$createdAt"] },
+      { "key": "project_owner_status", "type": "key", "attributes": ["ownerUserId", "status"] }
+    ]
+  },
+  {
+    "$id": "scope_versions",
+    "$permissions": [],
+    "databaseId": "receipt",
+    "name": "Scope Versions",
+    "enabled": true,
+    "rowSecurity": true,
+    "columns": [
+      { "key": "ownerUserId", "type": "varchar", "size": 36, "required": true, "array": false, "encrypt": false },
+      { "key": "projectId", "type": "varchar", "size": 36, "required": true, "array": false, "encrypt": false },
+      { "key": "version", "type": "integer", "required": true, "min": 1, "max": 1000, "array": false },
+      { "key": "title", "type": "varchar", "size": 120, "required": true, "array": false, "encrypt": false },
+      { "key": "content", "type": "text", "required": true, "array": false, "encrypt": false },
+      { "key": "acceptedAt", "type": "datetime", "required": true, "array": false }
+    ],
+    "indexes": [
+      { "key": "scope_project_version", "type": "unique", "attributes": ["projectId", "version"] },
+      { "key": "scope_owner_project", "type": "key", "attributes": ["ownerUserId", "projectId"] }
+    ]
+  },
+  {
+    "$id": "requests",
+    "$permissions": [],
+    "databaseId": "receipt",
+    "name": "Change Requests",
+    "enabled": true,
+    "rowSecurity": true,
+    "columns": [
+      { "key": "ownerUserId", "type": "varchar", "size": 36, "required": true, "array": false, "encrypt": false },
+      { "key": "projectId", "type": "varchar", "size": 36, "required": true, "array": false, "encrypt": false },
+      { "key": "scopeVersionId", "type": "varchar", "size": 36, "required": true, "array": false, "encrypt": false },
+      { "key": "title", "type": "varchar", "size": 160, "required": true, "array": false, "encrypt": false },
+      { "key": "content", "type": "text", "required": true, "array": false, "encrypt": false },
+      { "key": "status", "type": "string", "format": "enum", "elements": ["draft", "ready", "analyzing", "review", "proposed", "accepted", "rejected", "error"], "required": true, "array": false },
+      { "key": "analysisJson", "type": "mediumtext", "required": false, "array": false, "encrypt": false },
+      { "key": "analysisSource", "type": "string", "format": "enum", "elements": ["pending", "azure", "manual", "demo"], "required": true, "array": false },
+      { "key": "analysisModel", "type": "varchar", "size": 64, "required": false, "array": false, "encrypt": false },
+      { "key": "analyzedAt", "type": "datetime", "required": false, "array": false },
+      { "key": "reviewedAt", "type": "datetime", "required": false, "array": false },
+      { "key": "proposalAmountCents", "type": "integer", "required": false, "min": 0, "max": 100000000, "array": false },
+      { "key": "proposalCurrency", "type": "varchar", "size": 3, "required": false, "array": false, "encrypt": false },
+      { "key": "proposalDueDate", "type": "datetime", "required": false, "array": false },
+      { "key": "proposalNote", "type": "text", "required": false, "array": false, "encrypt": false },
+      { "key": "shareTokenHash", "type": "varchar", "size": 64, "required": false, "array": false, "encrypt": false },
+      { "key": "shareExpiresAt", "type": "datetime", "required": false, "array": false },
+      { "key": "clientDecision", "type": "string", "format": "enum", "elements": ["pending", "accepted", "rejected"], "required": false, "array": false },
+      { "key": "clientComment", "type": "text", "required": false, "array": false, "encrypt": false },
+      { "key": "respondedAt", "type": "datetime", "required": false, "array": false }
+    ],
+    "indexes": [
+      { "key": "request_owner_created", "type": "key", "attributes": ["ownerUserId", "$createdAt"] },
+      { "key": "request_owner_project", "type": "key", "attributes": ["ownerUserId", "projectId", "$createdAt"] },
+      { "key": "request_project_created", "type": "key", "attributes": ["projectId", "$createdAt"] },
+      { "key": "request_share_token", "type": "key", "attributes": ["shareTokenHash"] }
+    ]
+  },
+  {
+    "$id": "events",
+    "$permissions": [],
+    "databaseId": "receipt",
+    "name": "Audit Events",
+    "enabled": true,
+    "rowSecurity": true,
+    "columns": [
+      { "key": "ownerUserId", "type": "varchar", "size": 36, "required": true, "array": false, "encrypt": false },
+      { "key": "projectId", "type": "varchar", "size": 36, "required": true, "array": false, "encrypt": false },
+      { "key": "requestId", "type": "varchar", "size": 36, "required": false, "array": false, "encrypt": false },
+      { "key": "kind", "type": "string", "format": "enum", "elements": ["scope_accepted", "request_created", "analysis_requested", "analysis_ready", "analysis_failed", "analysis_reviewed", "proposal_created", "client_accepted", "client_rejected"], "required": true, "array": false },
+      { "key": "actor", "type": "string", "format": "enum", "elements": ["operator", "client", "system"], "required": true, "array": false },
+      { "key": "summary", "type": "varchar", "size": 255, "required": true, "array": false, "encrypt": false },
+      { "key": "payloadJson", "type": "text", "required": false, "array": false, "encrypt": false }
+    ],
+    "indexes": [
+      { "key": "event_owner_created", "type": "key", "attributes": ["ownerUserId", "$createdAt"] },
+      { "key": "event_request_created", "type": "key", "attributes": ["requestId", "$createdAt"] }
+    ]
+  },
+  {
+    "$id": "ai_runs",
+    "$permissions": [],
+    "databaseId": "receipt",
+    "name": "AI Usage Receipts",
+    "enabled": true,
+    "rowSecurity": true,
+    "columns": [
+      { "key": "ownerUserId", "type": "varchar", "size": 36, "required": true, "array": false, "encrypt": false },
+      { "key": "requestId", "type": "varchar", "size": 36, "required": true, "array": false, "encrypt": false },
+      { "key": "status", "type": "string", "format": "enum", "elements": ["success", "fallback", "failed"], "required": true, "array": false },
+      { "key": "model", "type": "varchar", "size": 64, "required": true, "array": false, "encrypt": false },
+      { "key": "category", "type": "varchar", "size": 64, "required": true, "array": false, "encrypt": false },
+      { "key": "promptTokens", "type": "integer", "required": false, "min": 0, "max": 1000000, "array": false },
+      { "key": "completionTokens", "type": "integer", "required": false, "min": 0, "max": 1000000, "array": false },
+      { "key": "totalTokens", "type": "integer", "required": false, "min": 0, "max": 1000000, "array": false },
+      { "key": "latencyMs", "type": "integer", "required": true, "min": 0, "max": 120000, "array": false }
+    ],
+    "indexes": [
+      { "key": "ai_owner_created", "type": "key", "attributes": ["ownerUserId", "$createdAt"] },
+      { "key": "ai_created", "type": "key", "attributes": ["$createdAt"] }
+    ]
+  },
+  {
+    "$id": "ai_budgets",
+    "$permissions": [],
+    "databaseId": "receipt",
+    "name": "AI Budget Counters",
+    "enabled": true,
+    "rowSecurity": true,
+    "columns": [
+      { "key": "scope", "type": "string", "format": "enum", "elements": ["user_hour", "project_month", "global_month"], "required": true, "array": false },
+      { "key": "windowKey", "type": "varchar", "size": 255, "required": true, "array": false, "encrypt": false },
+      { "key": "count", "type": "integer", "required": true, "min": 0, "max": 1000000, "array": false }
+    ],
+    "indexes": []
+  }
+]

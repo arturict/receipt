@@ -1,0 +1,24 @@
+[
+  {
+    "$id": "scope-api",
+    "name": "Receipt Scope API",
+    "execute": ["users"],
+    "enabled": true,
+    "logging": true,
+    "runtime": "node-22",
+    "buildSpecification": "s-2vcpu-2gb",
+    "runtimeSpecification": "s-0.5vcpu-512mb",
+    "deploymentRetention": 10,
+    "scopes": [
+      "rows.read",
+      "rows.write"
+    ],
+    "events": [],
+    "schedule": "",
+    "timeout": 30,
+    "entrypoint": "dist/main.js",
+    "commands": "npm ci && npm run build",
+    "ignore": "node_modules\ncoverage\n.env*\n.appwrite\nscripts\nsrc/**/*.test.ts",
+    "path": "../functions/scope-api"
+  }
+]

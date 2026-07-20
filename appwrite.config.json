@@ -1,0 +1,63 @@
+{
+  "organizationId": "67a4b1d41adc8d40f201",
+  "projectId": "receipt-buildweek",
+  "projectName": "Receipt",
+  "endpoint": "https://fra.cloud.appwrite.io/v1",
+  "includes": {
+    "tables": "appwrite/tables.json",
+    "functions": "appwrite/functions.json",
+    "sites": "appwrite/sites.json"
+  },
+  "settings": {
+    "services": {
+      "account": true,
+      "avatars": false,
+      "databases": false,
+      "tablesdb": true,
+      "functions": true,
+      "graphql": false,
+      "health": false,
+      "locale": false,
+      "migrations": false,
+      "oauth2": false,
+      "proxy": true,
+      "project": false,
+      "teams": false,
+      "sites": true,
+      "storage": false,
+      "messaging": false,
+      "users": false,
+      "vcs": false,
+      "advisor": false
+    },
+    "protocols": {
+      "rest": true,
+      "graphql": false,
+      "websocket": true
+    },
+    "auth": {
+      "methods": {
+        "email-password": false,
+        "magic-url": false,
+        "email-otp": false,
+        "anonymous": true,
+        "phone": false,
+        "invites": false,
+        "jwt": false
+      },
+      "security": {
+        "sessionsLimit": 3,
+        "passwordDictionary": true,
+        "passwordHistory": 3,
+        "personalDataCheck": true
+      }
+    }
+  },
+  "tablesDB": [
+    {
+      "$id": "receipt",
+      "name": "Receipt",
+      "enabled": true
+    }
+  ]
+}
