@@ -5,14 +5,14 @@ This separates repository evidence from actions that require GitHub, Appwrite, a
 ## Repository
 
 - [x] Make `receipt/` the actual Git repository root before publishing.
-- [ ] Review the complete diff and confirm only intended product files are included.
+- [x] Review the complete initial diff and confirm only intended product files are included.
 - [x] Confirm `README.md` gives setup, run, sample, architecture, security, and verification paths.
 - [x] Confirm `LICENSE` is MIT and names Artur Ferreira Cruz, 2026.
 - [x] Enable GitHub private vulnerability reporting and link it from `docs/SECURITY.md`.
-- [x] Search the current tree before the first commit for `.env` files, Azure/Appwrite keys, raw proposal links, client data, local paths, and generated logs; repeat against Git history before submission.
-- [ ] Create the public repository and verify it while signed out.
-- [ ] Public repository URL: https://github.com/arturict/receipt (created; verify content after the first push)
-- [ ] Confirm GitHub Actions discovers `.github/workflows/ci.yml` and the Node 22 job passes.
+- [x] Search the current tree and single-commit history for `.env` files, Azure/Appwrite keys, raw proposal links, client data, local paths, and generated logs; repeat before submission if history changes.
+- [x] Create the public repository and verify it from the signed-out GitHub surface.
+- [x] Public repository URL: https://github.com/arturict/receipt
+- [x] Confirm GitHub Actions discovers `.github/workflows/ci.yml` and the Node 22.13.0 job passes: run `29752762291`.
 - [ ] Pin or protect the submission revision as appropriate.
 
 ## Local verification
